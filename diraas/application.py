@@ -29,6 +29,10 @@ def path_sanitize(path):
 def ls():
     root_dir = app.config['ROOT_DIR']
     targets = request.args.get('targets')
+    try:
+        limit = int(request.args.get('limit', 1000))
+    except ValueError:
+        raise BadRequest(ValueError)
 
     if not targets:
         raise BadRequest('targets required!')
@@ -36,7 +40,7 @@ def ls():
     ret = reduce(operator.add, [
         glob.glob(op.join(root_dir, path_sanitize(t)))
         for t in targets.split()
-    ])
+    ])[:limit]
     ret = [p.replace(root_dir, '', 1).lstrip(op.sep) for p in ret]
 
     return jsonify(ret)
