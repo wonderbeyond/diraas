@@ -11,7 +11,7 @@ with open(path.join(here, 'README.rst')) as f:
 
 setup(
     name='diraas',
-    version='0.0.4',
+    version='0.0.5',
     description='Make directory as a service.',
     long_description=long_description,
     author='wonder',

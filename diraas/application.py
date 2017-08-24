@@ -37,7 +37,7 @@ def ls():
         glob.glob(op.join(root_dir, path_sanitize(t)))
         for t in targets.split()
     ])
-    ret = [p.replace(root_dir, '').lstrip(op.sep) for p in ret]
+    ret = [p.replace(root_dir, '', 1).lstrip(op.sep) for p in ret]
 
     return jsonify(ret)
 
