@@ -11,7 +11,7 @@ with open(path.join(here, 'README.rst')) as f:
 
 setup(
     name='diraas',
-    version='0.0.6',
+    version='0.0.7',
     description='Make directory as a service.',
     long_description=long_description,
     author='wonder',
@@ -19,7 +19,7 @@ setup(
     url='',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     install_requires=[
-        'Flask~=0.12.2',
+        'Flask',
     ],
     entry_points={
         'console_scripts': [
